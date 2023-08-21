@@ -1,7 +1,7 @@
 import { useState } from "react";
 import UserInputs from "./UserInputs";
 import registerUser from "./registerUser";
-import RegisterErrorMessage from "./RegisterStatusMessage";
+import RegisterStatusMessage from "./RegisterStatusMessage";
 import { useNavigate } from "react-router-dom";
 
 const RegisterForm = () => {
@@ -42,7 +42,7 @@ const RegisterForm = () => {
                 Register Now
               </button>
             </center>
-            <RegisterErrorMessage
+            <RegisterStatusMessage
               message={status.message}
               isError={status.isError}
             />

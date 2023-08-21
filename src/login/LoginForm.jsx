@@ -1,17 +1,42 @@
-import InputPassword from "./InputPassword";
-import InputUsername from "./InputUsername";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import UserInputs from "./UserInputs";
+import LoginErrorMessage from "./LoginErrorMessage";
+import LoginBoxFooter from "./LoginBoxFooter";
+import tryLogin from "./loginFetch";
 
 // eslint-disable-next-line react/prop-types
-const LoginForm = ({ userData }) => {
-  const [data1, data2] = userData;
-  const [username, setUsername] = data1;
-  const [psw, setPsw] = data2;
+const LoginForm = () => {
+  const [userData, setUserData] = useState({ username: "", password: "" });
+  const [errMsg, setErrMsg] = useState("");
+  const navigate = useNavigate();
   return (
     <>
-      <form>
-        <InputUsername data={username} setData={setUsername} />
-        <InputPassword data={psw} setData={setPsw} />
-      </form>
+      <div className="form-box-container">
+        <div className="form-box">
+          <div className="form-box-header">Login</div>
+          <form>
+            <UserInputs userData={userData} setUserData={setUserData} />
+            <LoginErrorMessage message={errMsg} />
+            <center>
+              <button
+                type="sumbit"
+                className="btn-dark"
+                onClick={async (e) => {
+                  e.preventDefault();
+                  const loginSucc = await tryLogin(userData, setErrMsg);
+                  if (loginSucc) {
+                    navigate("/");
+                  }
+                }}
+              >
+                Login Now
+              </button>
+            </center>
+          </form>
+          <LoginBoxFooter />
+        </div>
+      </div>
     </>
   );
 };

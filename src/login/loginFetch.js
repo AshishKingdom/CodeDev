@@ -1,41 +1,35 @@
-const tryLogin = (username, password, errFn ,navigate) => {
+const tryLogin = async (userData, setErrFn) => {
   const formData = new URLSearchParams();
+
+  const username = userData?.username ?? "";
+  const password = userData?.password ?? "";
 
   formData.append("username", username);
   formData.append("password", password);
 
   localStorage.removeItem("token");
   localStorage.removeItem("usr");
-
-  fetch("http://127.0.0.1:8000/login", {
-    method: "POST",
-    body: formData,
-    headers: {
-      "Content-type": "application/x-www-form-urlencoded",
-    },
-  })
-    .then((res) => {
-      if (res.status == 200) {
-        return res.json().then((data) => {
-          localStorage.setItem("token", data?.access_token);
-          localStorage.setItem("usr", username);
-          errFn("");
-          navigate('/');
-        });
-      } else if (res.status == 400) {
-        res.json().then((data) => {
-          errFn(data?.detail);
-        });
-      } else {
-        errFn("An unexpected error has occcured. Please try again later.");
-      }
-    })
-    .then((data) => {
-      return data;
-    })
-    .catch((err) => {
-      console.log(err);
+  try {
+    const res = await fetch("http://127.0.0.1:8000/login", {
+      method: "POST",
+      body: formData,
+      headers: {
+        "Content-type": "application/x-www-form-urlencoded",
+      },
     });
+    const data = await res.json();
+    if (res.ok) {
+      localStorage.setItem("user", username);
+      localStorage.setItem("token", data?.access_token);
+      return true;
+    } else {
+      setErrFn(data?.detail);
+      return false;
+    }
+  } catch (err) {
+    setErrFn("An unexpected error has occured. Please try again later.");
+    return false;
+  }
 };
 
 export default tryLogin;

@@ -9,7 +9,7 @@ const UserContent = () => {
           Welcome <br />
           Back,
           <br />
-          <p className="special-head">{localStorage.getItem("usr")}</p>
+          <p className="special-head">{localStorage.getItem("user")}</p>
         </div>
         <div className="user-content">
           <br />
