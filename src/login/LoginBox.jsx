@@ -9,9 +9,9 @@ const LoginBox = () => {
 
   return (
     <>
-      <div className="login-box-container">
-        <div className="login-box">
-          <div className="login-box-header">Login</div>
+      <div className="form-box-container">
+        <div className="form-box">
+          <div className="form-box-header">Login</div>
           <LoginForm userData={[username, psw]} />
           <UserLoginButton userData={[username[0], psw[0]]} />
           <LoginBoxFooter />

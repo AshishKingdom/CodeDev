@@ -31,6 +31,15 @@ a {
   color: red;
   padding: 10px;
 }
+.box-success {
+  box-sizing: border-box;
+  margin: 10px;
+  text-align: center;
+  border: 1px solid rgb(0, 197, 16);
+  background-color: rgb(189, 255, 187);
+  color: rgb(0, 121, 10);
+  padding: 10px;
+}
 
 .special-head {
   font-size: 56px;
@@ -79,32 +88,43 @@ a {
   color: #5200ff;
   font-weight: bold;
 }
-/* Login Page */
 
+/* Login & Register Page */
 @media screen and (min-width: 1366px) {
-  .login-box-container {
-    grid-template-columns: 35% 30% 35%;
+  .form-box-container,
+  .reg-form-box-container {
+    grid-template-columns: 30% 40% 30%;
   }
 }
 
 @media screen and (max-width: 1366px) {
-  .login-box-container {
+  .form-box-container,
+  .reg-form-box-container {
     grid-template-columns: 25% 50% 25%;
   }
 }
-.login-box-container {
+.form-box-container {
   width: 100%;
   display: grid;
   grid-template-rows: 20vh 60vh 20vh;
+  background: url("Only-Nav.svg") no-repeat;
+  background-size: cover;
+}
+.reg-form-box-container {
+  width: 100%;
+  display: grid;
+  grid-template-rows: 15vh 70vh 15vh;
+  background: url("Only-Nav.svg") no-repeat;
+  background-size: cover;
 }
 
-.login-box {
+.form-box {
   grid-area: 2/2/2/2;
   border: 2px solid black;
   background-color: #e5e5e5;
 }
 
-.login-box-header {
+.form-box-header {
   width: 100%;
   padding: 10px;
   text-align: center;
@@ -113,9 +133,9 @@ a {
   background-color: #727272;
   box-sizing: border-box;
 }
-.login-box > form {
+.form-box > form {
   padding: 20px 20px 0px 20px;
-  margin: 30px 20px 0px 20px;
+  margin: 15px 20px 0px 20px;
   box-sizing: border-box;
 }
 .input-box-default {
@@ -124,7 +144,7 @@ a {
   padding: 10px;
   outline: none;
   font-size: 24px;
-  margin: 20px 0px;
+  margin: 15px 10px;
 }
 
 .input-box-default:focus {
