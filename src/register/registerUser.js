@@ -1,12 +1,14 @@
 import regFormValidator from "./regFormValidator";
 const registerUser = async (userData, statusFn) => {
+  const apiURL = import.meta.env.VITE_API_URL ?? "http://127.0.0.1:8000";
+
   const validation_error = regFormValidator(userData);
   if (validation_error.length != 0) {
     statusFn({ isError: true, message: validation_error });
     return false;
   }
   try {
-    const res = await fetch("http://127.0.0.1:8000/register", {
+    const res = await fetch(apiURL + "/register", {
       method: "POST",
       body: JSON.stringify(userData),
       headers: { "Content-Type": "application/json" },
