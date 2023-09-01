@@ -27,13 +27,13 @@ jobs:
       - name: Clone Backend repository
         uses: actions/checkout@v2
         with:
-          repository: AshishKingdom/Backend
+          repository: AshishKingdom/CodeDev-Backend
           path: backend
 
       - name: Build Backend Docker image
         run: |
           docker build -t ashishkingdom/codedev:latest .
-        
+
       - name: Login to Docker Hub
         run: docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_PASSWORD }}
 
