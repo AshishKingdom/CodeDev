@@ -26,10 +26,10 @@ jobs:
 
       - name: Build Docker Image
         run: |
-          docker build -t ${{secrets.DOCKERHUB_USERNAME}}/codedev-frontend:latest .
+          docker build -t ashishkingdom/codedev-frontend:latest .
 
       - name: Login to Docker Hub
-        run: docker login -u "${{ secrets.DOCKERHUB_USERNAME }}" -p "${{ secrets.DOCKERHUB_PASSWORD }}"
+        run: docker login -u "ashishkingdom" -p "${{ secrets.DOCKERHUB_PASSWORD }}"
 
       - name: Push Docker image to Docker Hub
-        run: docker push ${{secrets.DOCKERHUB_USERNAME}}/codedev-frontend:latest
+        run: docker push ashishkingdom/codedev-frontend:latest
