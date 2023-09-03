@@ -1,6 +1,4 @@
 const tryLogin = async (userData, setErrFn) => {
-  const apiURL = import.meta.env.VITE_API_URL ?? "http://127.0.0.1:8000";
-
   const formData = new URLSearchParams();
 
   const username = userData?.username ?? "";
@@ -12,7 +10,7 @@ const tryLogin = async (userData, setErrFn) => {
   localStorage.removeItem("token");
   localStorage.removeItem("usr");
   try {
-    const res = await fetch(apiURL + "/login", {
+    const res = await fetch("/api/login", {
       method: "POST",
       body: formData,
       headers: {
