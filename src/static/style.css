@@ -89,6 +89,34 @@ a {
   font-weight: bold;
 }
 
+/* Contest Page */
+.table-style{
+  border-spacing: 0;
+  border: 1px solid black;
+}
+.table-style>tbody>tr{
+  background: #E5E5E5;
+}
+tbody>tr.table-heading {
+  background: #727272;
+  color:#fff;
+  font-weight: bold;
+  font-size: 14pt;
+}
+.table-style>tbody>tr>td{
+  padding: 10px;
+  font-size: 14pt;
+}
+
+.underline-heading{
+  font-size: 24pt;
+  padding-left: 20px;
+  font-weight: bold;
+}
+.contest-data{
+  margin-bottom: 40px;
+}
+
 /* Login & Register Page */
 @media screen and (min-width: 1366px) {
   .form-box-container,
@@ -227,4 +255,62 @@ a {
   font-size: 28px;
   cursor: pointer;
   box-shadow: 0px 4px 4px #00000073;
+}
+
+/*Spinners*/
+
+.lds-ellipsis {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+.lds-ellipsis div {
+  position: absolute;
+  top: 33px;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: #5200ff;
+  animation-timing-function: cubic-bezier(0, 1, 1, 0);
+}
+.lds-ellipsis div:nth-child(1) {
+  left: 8px;
+  animation: lds-ellipsis1 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(2) {
+  left: 8px;
+  animation: lds-ellipsis2 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(3) {
+  left: 32px;
+  animation: lds-ellipsis2 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(4) {
+  left: 56px;
+  animation: lds-ellipsis3 0.6s infinite;
+}
+@keyframes lds-ellipsis1 {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes lds-ellipsis3 {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+@keyframes lds-ellipsis2 {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(24px, 0);
+  }
 }
