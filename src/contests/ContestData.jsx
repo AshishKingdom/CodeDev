@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { useQuery } from "@tanstack/react-query";
 import fetchContests from "./fetchContests";
 import { Link } from "react-router-dom";
@@ -12,9 +13,9 @@ const ContestData = ({ flag, title }) => {
             <tr className="table-heading" align="center">
               <td>ID</td>
               <td>CONTEST NAME</td>
-              <td>STARTS</td>
+              <td>START</td>
               <td>DURATION</td>
-              <td>ENDS IN</td>
+              <td>END</td>
             </tr>
 
             {status == "loading" && (
@@ -52,25 +53,19 @@ const ContestData = ({ flag, title }) => {
               ) : (
                 data.map((c) => {
                   return (
-                    <>
-                      <tr align="center" key={c?.id}>
-                        <td>{c?.id}</td>
-                        <td>
-                          <Link to={"/contest/" + c?.id}>
-                            {c?.name?.toUpperCase()}
-                          </Link>
-                        </td>
-                        <td>
-                          {new Date(c?.start * 1000).toLocaleString()} (IST)
-                        </td>
-                        <td>
-                          {Math.floor((c?.end - c?.start) / 60)} minute(s)
-                        </td>
-                        <td>
-                          {new Date(c?.end * 1000).toLocaleString()} (IST)
-                        </td>
-                      </tr>
-                    </>
+                    <tr align="center" key={`contest-${c?.id}`}>
+                      <td>{c?.id}</td>
+                      <td>
+                        <Link to={"/contest/" + c?.id}>
+                          {c?.name?.toUpperCase()}
+                        </Link>
+                      </td>
+                      <td>
+                        {new Date(c?.start * 1000).toLocaleString()} (IST)
+                      </td>
+                      <td>{Math.floor((c?.end - c?.start) / 60)} minute(s)</td>
+                      <td>{new Date(c?.end * 1000).toLocaleString()} (IST)</td>
+                    </tr>
                   );
                 })
               ))}

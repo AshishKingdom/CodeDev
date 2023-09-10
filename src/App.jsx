@@ -10,10 +10,11 @@ import Logout from "./logout/Logout";
 import Register from "./register/Register";
 import ProblemsPage from "./problems/Problems";
 import ContestsPage from "./contests/Contests";
+import SingleContestInfo from "./contests/SingleContestInfo";
 
 const queryClient = new QueryClient({
   defaultOptions: {
-    queries: { staleTime: 5000, cacheTime: 300000 },
+    queries: { staleTime: 60000, cacheTime: 300000 },
   },
 });
 
@@ -27,6 +28,7 @@ export function App() {
           <Route path="/logout" element={<Logout />} />
           <Route path="/register" element={<Register />} />
           <Route path="/contests" element={<ContestsPage />} />
+          <Route path="/contest/:contest_id" element={<SingleContestInfo />} />
           <Route path="/problems" element={<ProblemsPage />} />
         </Routes>
       </BrowserRouter>

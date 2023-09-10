@@ -7,7 +7,7 @@ const ContestsPage = () => {
   return (
     <>
       <Navbar />
-      <br/><br/><br/><br/><br/><br/><br/>
+      <br/><br/><br/><br/>
       <ContestData flag="present" title="Ongoing Contests" />
       <ContestData flag="future" title="Upcoming Contests" />
       <ContestData flag="past" title="Past Contests" />

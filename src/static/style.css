@@ -1,5 +1,6 @@
 /* Common */
-body {
+body,
+html {
   margin: 0;
   font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
   position: relative;
@@ -51,12 +52,19 @@ a {
   color: #5200ff;
 }
 
+.geometric-bg {
+  width: 100%;
+  background: url("Only-Nav.svg") no-repeat;
+  background-size: cover;
+  height: 100vh;
+}
+
 /* Navbar */
 .navbar {
   width: 100%;
   background-color: #e5e5e5;
   height: 30px;
-  position: fixed;
+  position: relative;
   top: 0px;
   box-shadow: 0px 4px 4px #0000005b;
   padding: 14px 0px;
@@ -90,31 +98,43 @@ a {
 }
 
 /* Contest Page */
-.table-style{
+.table-style {
   border-spacing: 0;
   border: 1px solid black;
 }
-.table-style>tbody>tr{
-  background: #E5E5E5;
+.table-style > tbody > tr {
+  background: #e5e5e5;
 }
-tbody>tr.table-heading {
+tbody > tr.table-heading {
   background: #727272;
-  color:#fff;
+  color: #fff;
   font-weight: bold;
   font-size: 14pt;
 }
-.table-style>tbody>tr>td{
+.table-style > tbody > tr > td {
   padding: 10px;
   font-size: 14pt;
 }
 
-.underline-heading{
+.underline-heading {
   font-size: 24pt;
   padding-left: 20px;
   font-weight: bold;
 }
-.contest-data{
-  margin-bottom: 40px;
+.contest-data {
+  margin-bottom: 50px;
+}
+
+.contest-info-box {
+  margin: 50px;
+  padding: 5px;
+  background: #e5e5e5;
+  border: 1px solid #727272;
+  font-size: 14pt;
+}
+.contest-info-box > p {
+  font-size: 14pt;
+  margin:30px;
 }
 
 /* Login & Register Page */
